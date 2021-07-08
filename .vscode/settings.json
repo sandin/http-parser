@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "typeinfo": "cpp",
+        "http_parser.h": "c"
+    }
+}

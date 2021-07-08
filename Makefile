@@ -85,8 +85,14 @@ test_g.o: test.c http_parser.h Makefile
 http_parser_g.o: http_parser.c http_parser.h Makefile
 	$(CC) $(CPPFLAGS_DEBUG) $(CFLAGS_DEBUG) -c http_parser.c -o $@
 
-test_fast: http_parser.o test.o http_parser.h
+test_fast: http_parse.o trest.o http_parser.h
 	$(CC) $(CFLAGS_FAST) $(LDFLAGS) http_parser.o test.o -o $@
+
+demo: http_parser_g.o demo.o
+	$(CC) $(CPPFLAGS_DEBUG) $(LDFLAGS) http_parser_g.o demo.o -o $@
+
+demo.o: demo.c http_parser.h Makefile
+	$(CC) $(CPPFLAGS_DEBUG) $(CFLAGS_DEBUG) -c demo.c -o $@
 
 test.o: test.c http_parser.h Makefile
 	$(CC) $(CPPFLAGS_FAST) $(CFLAGS_FAST) -c test.c -o $@

@@ -9,6 +9,7 @@ bench
 url_parser
 parsertrace
 parsertrace_g
+demo
 *.mk
 *.Makefile
 *.so.*
